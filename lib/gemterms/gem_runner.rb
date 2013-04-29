@@ -6,6 +6,7 @@ module Gemterms
   # Command line utility for running reports on Bundler (Gemfile) based
   # projects. Think includes Rails v3+ projects.
   class GemRunner < Runner
+    attr_reader :no_remote
 
     def gemfiles(args)
       @gemfile = args.shift || "./Gemfile"
@@ -23,17 +24,32 @@ module Gemterms
       super('gem', 'gems')
       return if standard_commands(args)
 
-      gf = GemFiler.new(licenser)
-      gf.no_remote = !!args.delete("--no-remote")        
+      filer = GemFiler.new(licenser)
+      filer.disable_api = @disable_api = !!args.delete("--disable-api")
+      filer.use_remotes = @use_remotes = !!args.delete("--use-remotes")
 
       case (args.shift || 'report')
       when 'report'
         gemfiles(args)
-        @project = gf.run(@gemfile, @lockfile)
-        commentary = "This is from the #{counter(gf.bundle.dependencies.length)} listed in your Gemfile, plus their dependencies."
+        @project = filer.process(@gemfile, @lockfile)
+        commentary = "This is from the #{counter(filer.bundle.dependencies.length)} listed in your Gemfile, plus any dependencies."
         stats(commentary)
         ruler && license_breakdown
+
+        unlicensed = @project.count_unlicensed
+        ruler && no_remote_instructions(unlicensed) if no_remote && (unlicensed > 0)
       end
+    end
+
+    # Instructions when there is missing license information, but the user
+    # has specified --disable-api - preventing remote license sources being used.
+    def no_remote_instructions(unlicensed)
+      puts <<-INST
+There is no license defined for #{counter(unlicensed)}. You are running with the `--disable-api`
+option. If you remove this option, gemterms will attempt to use RubyGems and 
+other sources for license information.
+INST
+      true
     end
 
     # Show usage instructions
@@ -51,7 +67,7 @@ Usage:
     Outputs a list of licenses that are referenced by this tool. This list is
     in the form "<name> [<code>]". You can use the code to look up licenses.
 
-  gemterms report [Options] [Gemfile] [Lockfile]
+  gemterms report [options] [GEMFILE] [LOCKFILE]
     Produces a report on license usage.
 
   gemterms show-license <code>
@@ -59,13 +75,17 @@ Usage:
     Ruby for details of the ruby license. See also "list-licenses" above.
 
 Options:
-  Gemfile and Lockfile will default to your current directory. Generally you'll
+  GEMFILE and LOCKFILE will default to your current directory. Generally you'll
   run gemterms from your Rails (or similar project) directory and omit these
   arguments.
 
-  --no-remote
-    Will prevent gemterms from going to RubyGems, Github and Bitbucket to
-    (attempt to) source version data.
+  --disable-api
+    If the gem metadata isn't complete, gemterms seeks additional information
+    from the source (e.g. RubyGems) API. This option disables that feature.
+
+  --use-remotes
+    If gem metadata is not available, gemterms will use the gem sources (e.g
+    https://rubygems.org).
 
 USAGE
       true

@@ -132,12 +132,12 @@ INST
   end
 
   def stats(commentary = nil)
-    ns = counter(project.size)
+    ns = counter(project.count)
     lg = counter(project.components.select { |c| c.licensed? }.count)
     ul = project.unique_licenses(false).count
     puts "Ok. Your project has #{ns} listed."
     puts commentary unless commentary.nil?
-    puts "There is an explict license for #{lg}. There are #{ul} unique license#{ul == '1' ? '' : 's'} referenced."
+    puts "There is an explict license for #{lg}. There #{ul == 1 ? "is 1 unique license" : "#{ul} unique licenses"} referenced."
     true
   end
 

@@ -32,6 +32,17 @@ module Gemterms
       @components << component
     end
 
+    # @return [ int ] number of components in the project
+    def count
+      @components.length
+    end
+
+    # @return [ int ] count of components in this projects that have "Unknown"
+    # licenses
+    def count_unlicensed
+      @components.count { |c| c.licensed? }
+    end
+
     def components_for_license(license)
       @components.select { |c| c.licenses.include?(license) }
     end
@@ -44,11 +55,6 @@ module Gemterms
       result = @components.map { |c| c.licenses }.flatten
       result.reject! { |l| l.unknown? } unless include_unknown
       result
-    end
-
-    # @return [ int ] number of components in the project
-    def size
-      @components.length
     end
 
     # @param [ true, false ] include_unknown If true, unknown licenses are 
