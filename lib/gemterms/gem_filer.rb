@@ -38,7 +38,7 @@ module Gemterms
           mspec = spec
           unless no_remote
             unless remote
-              STDOUT.print "Getting version data from RubyGems ."
+              STDOUT.print "Getting missing version data from RubyGems (use --no-remote to skip) ."
               remote = true
             else
               STDOUT.print "."
@@ -78,19 +78,19 @@ module Gemterms
 
         # Try for any later version. e.g. Rails 4 is marked as MIT licensed,
         # but earlier versions aren't. We assume MIT for the earlier versions.
-        # if licenses.nil? || licenses == []
-        #   version = versions.detect do |v| 
-        #     (Gem::Version.new(v["number"]) > spec.version) && 
-        #       !v["licenses"].nil? && v["licenses"].length > 0
-        #   end
-        #   licenses = version["licenses"] unless version.nil?
-        # end
-
         if licenses.nil? || licenses == []
-          data = rg.data(spec.name)
-          puts data["source_code_uri"]
-          # puts data.inspect
+          version = versions.detect do |v| 
+            (Gem::Version.new(v["number"]) > spec.version) && 
+              !v["licenses"].nil? && v["licenses"].length > 0
+          end
+          licenses = version["licenses"] unless version.nil?
         end
+
+        # if licenses.nil? || licenses == []
+          # data = rg.data(spec.name)
+          # puts data["source_code_uri"]
+          # puts data.inspect
+        # end
 
       rescue SourceUnavailableError => sae
         @sources[source] = :unavailable

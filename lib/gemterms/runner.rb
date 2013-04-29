@@ -34,7 +34,7 @@ BANNER
   def license_breakdown
     puts <<-INST
 Following are your #{component_plural} listed by license. Any #{component_plural} listed with a '*' 
-has multiple licenses.
+have multiple licenses.
 
 INST
     unknown_last(project.unique_licenses).each do |license|
