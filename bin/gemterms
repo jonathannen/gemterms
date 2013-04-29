@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+$LOAD_PATH << '/Users/jon/Projects/gemterms/lib'
+require 'gemterms'
+require 'gemterms/gem_runner'
+Gemterms::GemRunner.new(ARGV)

@@ -1,0 +1,395 @@
+licenses:
+  references:
+    A: "http://opensource.org/licenses/alphabetical"
+    B: "http://www.gnu.org/licenses/licenses.html"
+    1: "http://www.ruby-lang.org/en/about/license.txt"
+    2: "http://www.gnu.org/licenses/license-list.html#WTFPL"
+    3: "http://www.gnu.org/licenses/license-list.html#apache2"
+    4: "http://www.gnu.org/licenses/license-list.html#ArtisticLicense2"
+    5: "http://www.gnu.org/licenses/license-list.html#ModifiedBSD"
+    6: "http://www.gnu.org/licenses/license-list.html#FreeBSD"
+    7: "http://www.gnu.org/licenses/license-list.html#boost"
+    8: "http://www.gnu.org/licenses/license-list.html#Expat"
+
+  # Special cases
+  #*: "http://opensource.org/faq#public-domain"
+  "Public Domain":
+    name: "United States Public Domain"
+    unknown: true
+
+  # Top Level Classifications
+  "GNU Software":
+    name: "GNU Software Licenses"
+    unknown: true
+    uri: "http://www.gnu.org/licenses/licenses.html"
+
+  "OSI Approved":
+    name: "Open Source Initiative License"
+    unknown: true
+
+  "Proprietary":
+    name: "Proprietary License"
+    unknown: true
+
+  "Unknown":
+    name: "Not supplied, unknown or unclassified License"
+    unknown: true
+
+  # OSI Approved Licenses
+  "AFL-3.0":
+    A: "OSI Approved"
+    name: "Academic Free License 3.0"
+    uri: "http://opensource.org/licenses/AFL-3.0"
+  "AGPL-3.0":
+    A: "OSI Approved"
+    B: "GNU Software"
+    name: "Affero GNU Public License"
+    uri: "http://opensource.org/licenses/AGPL-3.0"
+  "APL-1.0":
+    A: "OSI Approved"
+    name: "Adaptive Public License"
+    uri: "http://opensource.org/licenses/APL-1.0"
+  "Apache-2.0":
+    A: "OSI Approved"
+    3: "GPL-3.0"
+    name: "Apache License 2.0"
+    uri: "http://opensource.org/licenses/Apache-2.0"
+  "APSL-2.0":
+    A: "OSI Approved"
+    name: "Apple Public Source License"
+    uri: "http://opensource.org/licenses/APSL-2.0"
+  "Artistic-2.0":
+    A: "OSI Approved"
+    4: ["GPL-2.0", "GPL-3.0"]
+    name: "Artistic license 2.0"
+    uri: "http://opensource.org/licenses/Artistic-2.0"
+  "AAL":
+    A: "OSI Approved"
+    name: "Attribution Assurance Licenses"
+    uri: "http://opensource.org/licenses/AAL"
+  "BSD-3-Clause":
+    A: "OSI Approved"
+    5: ["GPL-2.0", "GPL-3.0"]
+    name: "BSD 3-Clause \"New\" or \"Revised\" License"
+    uri: "http://opensource.org/licenses/BSD-3-Clause"
+  "BSD-2-Clause":
+    A: "OSI Approved"
+    6: ["GPL-2.0", "GPL-3.0"]
+    name: "BSD 2-Clause \"Simplified\" or \"FreeBSD\" License"
+    uri: "http://opensource.org/licenses/BSD-2-Clause"
+  "BSL-1.0":
+    A: "OSI Approved"
+    7: ["GPL-2.0", "GPL-3.0"]
+    name: "Boost Software License"
+    uri: "http://opensource.org/licenses/BSL-1.0"
+  "CATOSL-1.1":
+    A: "OSI Approved"
+    name: "Computer Associates Trusted Open Source License 1.1"
+    uri: "http://opensource.org/licenses/CATOSL-1.1"
+  "CDDL-1.0":
+    A: "OSI Approved"
+    name: "Common Development and Distribution License 1.0"
+    uri: "http://opensource.org/licenses/CDDL-1.0"
+  "CPAL-1.0":
+    A: "OSI Approved"
+    name: "Common Public Attribution License 1.0"
+    uri: "http://opensource.org/licenses/CPAL-1.0"
+  "CUA-OPL-1.0":
+    A: "OSI Approved"
+    name: "CUA Office Public License Version 1.0"
+    uri: "http://opensource.org/licenses/CUA-OPL-1.0"
+  "EUDatagrid":
+    A: "OSI Approved"
+    name: "EU DataGrid Software License"
+    uri: "http://opensource.org/licenses/EUDatagrid"
+  "EPL-1.0":
+    A: "OSI Approved"
+    name: "Eclipse Public License 1.0"
+    uri: "http://opensource.org/licenses/EPL-1.0"
+  "ECL-2.0":
+    A: "OSI Approved"
+    name: "Educational Community License, Version 2.0"
+    uri: "http://opensource.org/licenses/ECL-2.0"
+  "EFL-2.0":
+    A: "OSI Approved"
+    name: "Eiffel Forum License V2.0"
+    uri: "http://opensource.org/licenses/EFL-2.0"
+  "Entessa":
+    A: "OSI Approved"
+    name: "Entessa Public License"
+    uri: "http://opensource.org/licenses/Entessa"
+  "EUPL-1.1":
+    A: "OSI Approved"
+    name: "European Union Public License, Version 1.1"
+    uri: "http://opensource.org/licenses/EUPL-1.1"
+  "Fair":
+    A: "OSI Approved"
+    name: "Fair License"
+    uri: "http://opensource.org/licenses/Fair"
+  "Frameworx-1.0":
+    A: "OSI Approved"
+    name: "Frameworx License"
+    uri: "http://opensource.org/licenses/Frameworx-1.0"
+  "AGPL-3.0":
+    A: "OSI Approved"
+    B: "GNU Software"
+    name: "GNU Affero General Public License v3"
+    uri: "http://opensource.org/licenses/AGPL-3.0"
+  "GPL-2.0":
+    A: "OSI Approved"
+    B: "GNU Software"
+    name: "GNU General Public License version 2.0"
+    uri: "http://opensource.org/licenses/GPL-2.0"
+  "GPL-3.0":
+    A: "OSI Approved"
+    B: "GNU Software"
+    name: "GNU General Public License version 3.0"
+    uri: "http://opensource.org/licenses/GPL-3.0"
+  "LGPL-2.1":
+    A: "OSI Approved"
+    B: "GNU Software"
+    name: "GNU Library or \"Lesser\" General Public License version 2.1"
+    uri: "http://opensource.org/licenses/LGPL-2.1"
+  "LGPL-3.0":
+    A: "OSI Approved"
+    B: "GNU Software"
+    name: "GNU Library or \"Lesser\" General Public License version 3.0"
+    uri: "http://opensource.org/licenses/LGPL-3.0"
+  "HPND":
+    A: "OSI Approved"
+    name: "Historical Permission Notice and Disclaimer"
+    uri: "http://opensource.org/licenses/HPND"
+  "IPL-1.0":
+    A: "OSI Approved"
+    name: "IBM Public License 1.0"
+    uri: "http://opensource.org/licenses/IPL-1.0"
+  "IPA":
+    A: "OSI Approved"
+    name: "IPA Font License"
+    uri: "http://opensource.org/licenses/IPA"
+  "ISC":
+    A: "OSI Approved"
+    name: "ISC License"
+    uri: "http://opensource.org/licenses/ISC"
+  "LPPL-1.3c":
+    A: "OSI Approved"
+    name: "LaTeX Project Public License 1.3c"
+    uri: "http://opensource.org/licenses/LPPL-1.3c"
+  "LPL-1.02":
+    A: "OSI Approved"
+    name: "Lucent Public License Version 1.02"
+    uri: "http://opensource.org/licenses/LPL-1.02"
+  "MirOS":
+    A: "OSI Approved"
+    name: "MirOS Licence"
+    uri: "http://opensource.org/licenses/MirOS"
+  "MS-PL":
+    A: "OSI Approved"
+    name: "Microsoft Public License"
+    uri: "http://opensource.org/licenses/MS-PL"
+  "MS-RL":
+    A: "OSI Approved"
+    name: "Microsoft Reciprocal License"
+    uri: "http://opensource.org/licenses/MS-RL"
+  "MIT":
+    A: "OSI Approved"
+    8: ["GPL-2.0", "GPL-3.0"]
+    name: "MIT license"
+    uri: "http://opensource.org/licenses/MIT"
+  "Motosoto":
+    A: "OSI Approved"
+    name: "Motosoto License"
+    uri: "http://opensource.org/licenses/Motosoto"
+  "MPL-2.0":
+    A: "OSI Approved"
+    name: "Mozilla Public License 2.0"
+    uri: "http://opensource.org/licenses/MPL-2.0"
+  "Multics":
+    A: "OSI Approved"
+    name: "Multics License"
+    uri: "http://opensource.org/licenses/Multics"
+  "NASA-1.3":
+    A: "OSI Approved"
+    name: "NASA Open Source Agreement 1.3"
+    uri: "http://opensource.org/licenses/NASA-1.3"
+  "NTP":
+    A: "OSI Approved"
+    name: "NTP License"
+    uri: "http://opensource.org/licenses/NTP"
+  "Naumen":
+    A: "OSI Approved"
+    name: "Naumen Public License"
+    uri: "http://opensource.org/licenses/Naumen"
+  "NGPL":
+    A: "OSI Approved"
+    name: "Nethack General Public License"
+    uri: "http://opensource.org/licenses/NGPL"
+  "Nokia":
+    A: "OSI Approved"
+    name: "Nokia Open Source License"
+    uri: "http://opensource.org/licenses/Nokia"
+  "NPOSL-3.0":
+    A: "OSI Approved"
+    name: "Non-Profit Open Software License 3.0"
+    uri: "http://opensource.org/licenses/NPOSL-3.0"
+  "OCLC-2.0":
+    A: "OSI Approved"
+    name: "OCLC Research Public License 2.0"
+    uri: "http://opensource.org/licenses/OCLC-2.0"
+  "OFL-1.1":
+    A: "OSI Approved"
+    name: "Open Font License 1.1"
+    uri: "http://opensource.org/licenses/OFL-1.1"
+  "OGTSL":
+    A: "OSI Approved"
+    name: "Open Group Test Suite License"
+    uri: "http://opensource.org/licenses/OGTSL"
+  "OSL-3.0":
+    A: "OSI Approved"
+    name: "Open Software License 3.0"
+    uri: "http://opensource.org/licenses/OSL-3.0"
+  "PHP-3.0":
+    A: "OSI Approved"
+    name: "PHP License 3.0"
+    uri: "http://opensource.org/licenses/PHP-3.0"
+  "PostgreSQL":
+    A: "OSI Approved"
+    name: "The PostgreSQL License"
+    uri: "http://opensource.org/licenses/PostgreSQL"
+  "Python-2.0":
+    A: "OSI Approved"
+    name: "Python License"
+    uri: "http://opensource.org/licenses/Python-2.0"
+  "CNRI-Python":
+    A: "OSI Approved"
+    name: "CNRI Python license"
+    uri: "http://opensource.org/licenses/CNRI-Python"
+  "QPL-1.0":
+    A: "OSI Approved"
+    name: "Q Public License"
+    uri: "http://opensource.org/licenses/QPL-1.0"
+  "RPSL-1.0":
+    A: "OSI Approved"
+    name: "RealNetworks Public Source License V1.0"
+    uri: "http://opensource.org/licenses/RPSL-1.0"
+  "RPL-1.5":
+    A: "OSI Approved"
+    name: "Reciprocal Public License 1.5"
+    uri: "http://opensource.org/licenses/RPL-1.5"
+  "RSCPL":
+    A: "OSI Approved"
+    name: "Ricoh Source Code Public License"
+    uri: "http://opensource.org/licenses/RSCPL"
+  "SimPL-2.0":
+    A: "OSI Approved"
+    name: "Simple Public License 2.0"
+    uri: "http://opensource.org/licenses/SimPL-2.0"
+  "Sleepycat":
+    A: "OSI Approved"
+    name: "Sleepycat License"
+    uri: "http://opensource.org/licenses/Sleepycat"
+  "SPL-1.0":
+    A: "OSI Approved"
+    name: "Sun Public License 1.0"
+    uri: "http://opensource.org/licenses/SPL-1.0"
+  "Watcom-1.0":
+    A: "OSI Approved"
+    name: "Sybase Open Watcom Public License 1.0"
+    uri: "http://opensource.org/licenses/Watcom-1.0"
+  "NCSA":
+    A: "OSI Approved"
+    name: "University of Illinois/NCSA Open Source License"
+    uri: "http://opensource.org/licenses/NCSA"
+  "VSL-1.0":
+    A: "OSI Approved"
+    name: "Vovida Software License v. 1.0"
+    uri: "http://opensource.org/licenses/VSL-1.0"
+  "W3C":
+    A: "OSI Approved"
+    name: "W3C License"
+    uri: "http://opensource.org/licenses/W3C"
+  "WXwindows":
+    A: "OSI Approved"
+    name: "wxWindows Library License"
+    uri: "http://opensource.org/licenses/WXwindows"
+  "Xnet":
+    A: "OSI Approved"
+    name: "X.Net License"
+    uri: "http://opensource.org/licenses/Xnet"
+  "ZPL-2.0":
+    A: "OSI Approved"
+    name: "Zope Public License 2.0"
+    uri: "http://opensource.org/licenses/ZPL-2.0"
+  "Zlib":
+    A: "OSI Approved"
+    name: "zlib/libpng license"
+    uri: "http://opensource.org/licenses/Zlib"
+
+  
+  # Other Licenses
+  "Ruby":
+    1: "BSD-2-Clause"
+    name: "Ruby License"
+    uri: "http://www.ruby-lang.org/en/about/license.txt"
+
+  "WTFPL":
+    2: ["!GPL-2.0", "GPL-3.0"]
+    #@todo "!Public Domain"
+    name: "Do What The Fuck You Want To Public License"
+    uri: "http://www.wtfpl.net/about/"
+
+  # References used in gem specifications of RubyGems. This is free-form, so
+  # tends to have a lot of variation. This maps directly to the "known"
+  # formats. 
+  #
+  # Modifying these values:
+  # - If the mapping is ambiguous, choose the most restrictive form. For 
+  # example, "BSD" maps to the 3-Clause BSD.
+  #
+  # - If the mapping is not completely clear, add a bang "!" on the beginning
+  # to generate a warning.
+  rubygems:
+    "MIT":                  "MIT"
+    "LGPLv2":               "!LGPL-2.1"
+    "BSD":                  "BSD-3-Clause"
+    "Apache License 2.0":   "Apache-2.0"
+    "BSD-2-Clause":         "BSD-2-Clause"
+    "Ruby":                 "Ruby"
+    "APLv2":                "!Apache-2.0"
+    "Apache-2.0":           "Apache-2.0"
+    "GPL-3":                "GPL-3.0"
+    "Apache License Version 2.0": "Apache-2.0"
+    "GPL-V2+":              "GPL-3.0"
+    "Ruby's":               "Ruby"
+    "Apache 2.0":           "GPL-3.0"
+    "Artistic 2.0":         "Artistic-2.0"
+    "LGPL-2":               "!LGPL-2.1"
+    "GPLv3":                "GPL-3.0"
+    "BSD + MPL 1.1/GPL 2.0/LGPL 2.1": ["BSD-3-Clause", "GPL-2.0", "LGPL-2.1"]
+    "WTFPL":                "WTFPL"
+    "LGPL-3":               "LGPL-3.0"
+    "GPL":                  "!GPL-3.0"
+    "Ruby or LGPLv3+":      ["Ruby", "LGPL-3.0"]
+    "New BSD":              "BSD-3-Clause"
+    "MIT-LICENSE":          "MIT"
+    "Public Domain":        "Public Domain"
+    "LGPLv2.1":             "LGPL-2.1"
+    "GPL-2":                "GPL-2.0"
+    "GPLv2+":               "GPL-2.0"
+    "GPLv2":                "GPL-2.0"
+    "Ruby 1.8":             "Ruby"
+    "MIT License":          "MIT"
+    "BSD-3-Clause":         "BSD-2-Clause"
+    "Apache v2":            "Apache-2.0"
+    "LGPL v2.1":            "LGPL-2.1"
+    "GPL-2 or later":       "GPLv2"
+    "2-clause BSD-style license": "BSD-2-Clause"
+    "Apache Software License 2.0": "Apache-2.0"
+    "Ruby License":         "Ruby"
+    "LGPL-2.0+":            "LGPL-2.1"
+    "GNU GPL v2":           "GPL-2.0"
+    "LGPLv3":               "LGPL-3.0"
+    "BSD-3":                "BSD-3-Clause"
+    "LGPLv2.1 or later":    "LGPL-2.1"
+    "Ruby's and PSFL (lib/test/unit/diff.rb)": ["Ruby", "!Python-2.0"]
+    "2-clause BSDL":        "BSD-2-Clause"
