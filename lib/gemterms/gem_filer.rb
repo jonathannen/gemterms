@@ -13,7 +13,6 @@ module Gemterms
 
     def initialize(licenser)
       @licenser = licenser
-      @sources = {} # Rubygem sources, if necessary
       @no_remote = false
     end
 
@@ -28,40 +27,33 @@ module Gemterms
     protected
 
     def load
-      remote = false
-      specs = @bundle.resolve
-      specs.each do |spec|
-        licenses = []
-        mspec = spec.__materialize__
-
-        if mspec.nil? || mspec.licenses.nil? || mspec.licenses == []
-          mspec = spec
-          unless no_remote
-            unless remote
-              STDOUT.print "Getting missing version data from RubyGems (use --no-remote to skip) ."
-              remote = true
-            else
-              STDOUT.print "."
-            end
-            STDOUT.flush
-            licenses = rubygem_licences(spec)
-          end
-        else
-          licenses = mspec.licenses
-        end
-        
-        component = Component.new(mspec.name, mspec.version, @licenser.rubygem_licenses(licenses))
-        @project << component
+      # @todo Do we include *all* dependencies of a given gem here? Technically
+      # they are not in use, but they are linked to the gem. Maybe one for
+      # --very-strict mode
+      @sources = {}
+      @bundle.specs.each do |spec|
+        @project << load_spec_as_component(spec)
       end
-
-      puts "\n\n" if remote
-
+      puts "\n\n" if @sources.length > 0
       @project
     end
 
-    def rubygem_licences(spec)
-      return [] unless spec.source.class == Bundler::Source::Rubygems
+    def load_spec_as_component(spec)
+      if spec.licenses.nil? || spec.licenses == []
+        licenses = []
+        if (spec.source.class == Bundler::Source::Rubygems) && !no_remote 
+          puts "Getting missing license data from RubyGems (use --no-remote to skip) " if @sources.length == 0
+          STDOUT.print "."
+          STDOUT.flush
+          licenses = rubygem_licences(spec)
+        end
+      else
+        licenses = spec.licenses
+      end
+      component = Component.new(spec.name, spec.version, @licenser.rubygem_licenses(licenses))
+    end
 
+    def rubygem_licences(spec)
       licenses = []
       source = spec.source.remotes.first
 
@@ -76,6 +68,7 @@ module Gemterms
         version = versions.detect { |v| v["number"] == spec.version.to_s }
         licenses = version.nil? ? nil : version["licenses"]
 
+        # @todo this should be disabled when a --strict mode is introduced.
         # Try for any later version. e.g. Rails 4 is marked as MIT licensed,
         # but earlier versions aren't. We assume MIT for the earlier versions.
         if licenses.nil? || licenses == []
