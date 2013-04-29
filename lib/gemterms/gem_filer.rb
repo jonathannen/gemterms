@@ -127,7 +127,10 @@ INST
       # Try for any later version. e.g. Rails 4 is marked as MIT licensed,
       # but earlier versions aren't. We assume MIT for the earlier versions.
       # @todo this should be disabled when a --strict mode is introduced.
-      if licenses.nil?
+      if licenses.nil? || licenses == []
+        if spec.name == 'actionmailer'
+          puts versions.inspect
+        end
         version = versions.detect do |v| 
           (Gem::Version.new(v["number"]) > spec.version) && 
             !v["licenses"].nil? && v["licenses"].length > 0
