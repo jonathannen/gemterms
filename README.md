@@ -29,7 +29,7 @@ be treated as legal advice. The MIT-LICENSE.txt really applies here.
 
 Help is more than welcome. Use the usual Fork, Pull Request approach to 
 contribute. In particular, it's good to get additional licenses and
-compatabilities.
+compatibilities.
 
 ## License
 MIT Licensed. See MIT-LICENSE.txt for more information.
